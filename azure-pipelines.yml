@@ -11,6 +11,7 @@ pool:
   demands: 
     2020.3.23f1
 
+steps:
 - task: UnityBuildTask@3
   inputs:
     buildTarget: 'Win64'
