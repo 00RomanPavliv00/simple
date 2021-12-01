@@ -11,12 +11,9 @@ pool:
   demands: 
     2020.3.23f1
 
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: UnityBuildTask@3
+  inputs:
+    buildTarget: 'Win64'
+    unityProjectPath: 'D:\unity_project\firstGame-master\New Unity Project'
+    outputPath: '$(Build.BinariesDirectory)'
+    outputFileName: 'Simple'
