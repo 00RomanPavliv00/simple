@@ -1,0 +1,20 @@
+trigger:
+- main
+
+pool:
+  name: Azure Pipelines
+  demands: 
+    unity
+
+steps:
+
+- task: Cake@2
+  inputs:
+    script: 'build.cake'
+    target: 'Build-Android'
+    verbosity: 'Verbose'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'testgame'
+    publishLocation: 'pipeline'
