@@ -16,5 +16,10 @@ steps:
   inputs:
     buildTarget: 'Win64'
     unityProjectPath: 'D:\unity_project\firstGame-master\New Unity Project'
-    outputPath: '$(Build.BinariesDirectory)'
+    outputPath: '$(Build.BinariesDirectory)\builds'
     outputFileName: 'Simple'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.BinariesDirectory)\builds'
+    artifact: 'build_`date +"%m-%d-%y-%H"`'
+    publishLocation: 'pipeline'
