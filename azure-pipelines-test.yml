@@ -1,0 +1,21 @@
+trigger:
+- azure-pipelines-test
+
+pool:
+  name: Default
+  demands: 
+    2020.3.23f1
+
+steps:
+- task: UnityBuildTask@3
+  inputs:
+    buildTarget: 'Win64'
+    unityProjectPath: 'D:\unity_project\firstGame-master\New Unity Project'
+    outputPath: '$(Build.BinariesDirectory)\builds'
+    outputFileName: 'Simple'
+- task: AzureFileCopy@4
+  inputs:
+    azureSubscription: 'Azure subscription 1(9d46a63b-0469-40f9-a066-8e537f2d6aff)'
+    Destination: 'AzureBlob'
+    storage: 'unitybuildhub'
+    ContainerName: 'Game_builds_android'
