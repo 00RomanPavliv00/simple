@@ -15,7 +15,7 @@ steps:
 - task: UnityBuildTask@3
   inputs:
     buildTarget: 'Win64'
-    unityProjectPath: 'D:\unity_project\firstGame\New Unity Project'
+    unityProjectPath: 'D:\unity_project\firstGame-master\New Unity Project'
     outputPath: '$(Build.BinariesDirectory)\builds'
     outputFileName: 'Simple'
 - task: PublishPipelineArtifact@1
