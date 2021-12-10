@@ -12,9 +12,15 @@ pool:
     2020.3.23f1
 
 steps:
+# - task: UnityBuildTask@3
+#   inputs:
+#     buildTarget: 'Win64'
+#     unityProjectPath: 'D:\unity_project\firstGame-master\New Unity Project'
+#     outputPath: '$(Build.BinariesDirectory)\builds'
+#     outputFileName: 'Simple'
 - task: UnityBuildTask@3
   inputs:
-    buildTarget: 'Win64'
+    buildTarget: 'Android'
     unityProjectPath: 'D:\unity_project\firstGame-master\New Unity Project'
     outputPath: '$(Build.BinariesDirectory)\builds'
     outputFileName: 'Simple'
