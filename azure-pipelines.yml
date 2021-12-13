@@ -21,13 +21,13 @@ steps:
 - task: UnityBuildTask@3
   inputs:
     buildTarget: 'Android'
-    unityProjectPath: 'C:\Users\DesignPC2\soul-battles'
+    unityProjectPath: 'D:\coloring_solitaire'
     outputPath: '$(Build.BinariesDirectory)\builds'
     outputFileName: 'Simple'
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Build.BinariesDirectory)\builds'
-    artifact: 'build$(Build.Number)'
+    artifact: '$(Build.DefinitionName).$(Build.BuildNumber)'
     publishLocation: 'pipeline'
 # - task: AzureFileCopy@4
 #   inputs:
